@@ -48,8 +48,6 @@ class Score  extends Base
 		$arr = $this->info($result);
 		//构建成绩信息输出
 		$this->display();
-		//删除识别的验证码
-		(!(rand(1, 50) == '6')) ? : del_dir('sample/TempSamples/');
 	}
 
 
