@@ -20,7 +20,7 @@
 项目演示地址：http://cj.kbteam.cn/
 
 //项目截图
-![image] (https://github.com/kbdxbt/cj/image/1.png)
-![image] (https://github.com/kbdxbt/cj/image/2.png)
-![image] (https://github.com/kbdxbt/cj/image/3.png)
+![image](https://github.com/kbdxbt/cj/raw/master/image/1.png)
+![image](https://github.com/kbdxbt/cj/raw/master/image/2.png)
+![image](https://github.com/kbdxbt/cj/raw/master/image/3.png)
 
