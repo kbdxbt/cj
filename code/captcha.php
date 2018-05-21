@@ -62,12 +62,6 @@ $url = dirname("http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 //图片地址
 $image = rtrim($url.'/sample/TempSamples/'.pathinfo($app->image, PATHINFO_BASENAME), '/');
 
-//删除缓存的验证码图片
-if (is_file($imgurl))
-{
-	@unlink ($imgurl);
-}
-
 //删除识别的验证码  1/50的概率触发
 (!(rand(1, 50) == '6')) ? : del_dir('sample/TempSamples/');
 (!(rand(1, 50) == '6')) ? : del_dir('cache/');
