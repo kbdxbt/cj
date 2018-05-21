@@ -25,7 +25,11 @@ $_SESSION['sessionId'] = get_cookie(get_url($_SESSION['ip']));
 //判断目录并创建目录
 if (!is_dir('cache'))
 {
-	@mkdir('cache', 777);
+    @mkdir('cache', 777);
+}
+if (!is_dir('sample/TempSamples'))
+{
+    @mkdir('sample/TempSamples', 777);
 }
 
 //设置验证码图片缓存名称
@@ -66,6 +70,7 @@ if (is_file($imgurl))
 
 //删除识别的验证码  1/50的概率触发
 (!(rand(1, 50) == '6')) ? : del_dir('sample/TempSamples/');
+(!(rand(1, 50) == '6')) ? : del_dir('cache/');
 
 //返回json数据
 exit(json_encode(['captcha'=>$captcha, 'image'=>$image]));
