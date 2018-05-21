@@ -47,6 +47,11 @@ function curl_request($aArg=array())
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	}
 	@curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
+	if($aArg['cookie']) curl_setopt($ch, CURLOPT_COOKIE, $aArg['cookie']);
+	if($aArg['referer']) curl_setopt($ch, CURLOPT_REFERER, $aArg['referer']);
+	if($aArg['userAgent']) curl_setopt($ch, CURLOPT_USERAGENT, $aArg['userAgent']);
+	if(!empty($aArg['requestHeaders'])) curl_setopt($ch, CURLOPT_HTTPHEADER, $aArg['requestHeaders']);
+	if($aArg['username'] && $aArg['password']) curl_setopt($ch, CURLOPT_USERPWD, '['.$aArg['username'].']:['.$aArg['password'].']');
 	$data = curl_exec($ch);
 	if (curl_errno($ch)) return curl_error($ch);
 	curl_close($ch);
