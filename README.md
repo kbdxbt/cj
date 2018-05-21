@@ -1,21 +1,5 @@
-# school-report-card
-广西科技大学查成绩系统
+正方教务系统成绩查询手机版，结合Weui，自动识别验证码，通过模拟请求抓取教务系统成绩信息
 
-[演示地址](http://qq597914752.gotoip1.com/app/transcript/)
+正方教务系统成绩查询 1.0 版本（建议使用2.0版本）
 
-#数据来源
-柳苑晨曦
-
-#插件支持
--[Jquery](http://jquery.com/)
-
--[Material Design Lite](https://getmdl.io/)
-
--[PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/)
-
--[Chart.js](http://www.chartjs.org/)
-
-#主要特性
-1.适配移动端，可轻松在手机上查成绩
-
-2.图表统计，增加每个学期的绩点曲线图和总评分数级别分布
+使用方法：修改code.php文件的IP地址即可，注意格式，不加Http://
