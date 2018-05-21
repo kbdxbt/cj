@@ -1,26 +1,21 @@
-# 
-正方教务系统成绩查询手机版，结合Weui，自动识别验证码
+# school-report-card
+广西科技大学查成绩系统
 
-正方教务系统成绩查询 2.0 版本
+[演示地址](http://qq597914752.gotoip1.com/app/transcript/)
 
-版本要求：PHP版本必须在5.6以上，7.0最好
+#数据来源
+柳苑晨曦
 
-使用方法：修改code/captcha.php文件的IP地址即可
+#插件支持
+-[Jquery](http://jquery.com/)
 
-//更新内容
+-[Material Design Lite](https://getmdl.io/)
 
-1.重构目录及源码等规范，方便扩展与阅读;
+-[PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/)
 
-2.新增自动识别验证码，准确率在87%;
+-[Chart.js](http://www.chartjs.org/)
 
-3.新增日期选项自动填充
+#主要特性
+1.适配移动端，可轻松在手机上查成绩
 
-4.新增通过Cookie保存用户名，有效期30天;
-
-项目演示地址：http://cj.kbteam.cn/
-
-//项目截图
-![image](https://github.com/kbdxbt/cj/raw/master/image/1.png)
-![image](https://github.com/kbdxbt/cj/raw/master/image/2.png)
-![image](https://github.com/kbdxbt/cj/raw/master/image/3.png)
-
+2.图表统计，增加每个学期的绩点曲线图和总评分数级别分布

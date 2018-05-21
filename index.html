@@ -3,104 +3,99 @@
 <head>
 <meta charset="utf-8">
 <title>教务系统查询</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-<link rel="stylesheet" href="css/weui.css"/>
-<link rel="stylesheet" href="css/weui2.css"/>
-<link rel="stylesheet" href="css/weui3.css"/>
-<script src="js/zepto.min.js"></script>
+ <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <link rel="stylesheet" href="weui.css"/>
+  <link rel="stylesheet" href="weui2.css"/>
+  <link rel="stylesheet" href="weui3.css"/>
+
+      <script src="zepto.min.js"></script>
+      <script>
+  $(function(){
+
+      
+      });    
+      
+      </script>
 </head>
 
 <body ontouchstart style="background-color: #f8f8f8;">
-</div>
+
+        
+ </div> 
+
 <div class="form">
-<div class="weui-header bg-blue">
-	<h1 class="weui-header-title">成绩查询</h1>
-	<div class="weui-header-right">
-	</div>
-</div>
-<div class="weui_cells_title">
-	请输入下列信息查询成绩信息
-</div>
-<div class="weui_cells weui_cells_form">
-	<div class="weui_cell weui_cell_select weui_select_after">
-		<div class="weui_cell_hd">
-			<label for="" class="weui_label">学期</label>
-		</div>
-		<div class="weui_cell_bd weui_cell_primary">
-			<select class="weui_select" name="xueqi" id="xueqi">
-            <!--系统默认通过semeter.php加载选项,开发者可删除自己设置，格式为
-            <option value="2016-2017*1">2016-2017 第1学期</option>
-             <option value="2016-2017*2">2016-2017 第2学期</option>
-             <option value="2016-2017*3">2016-2017 第3学期</option>
-            -->
-            </select>
-		</div>
-	</div>
-	<div class="weui_cell">
-		<div class="weui_cell_hd">
-			<label class="weui_label">用户名</label>
-		</div>
-		<div class="weui_cell_bd weui_cell_primary">
-			<input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入用户名" name="number"/>
-		</div>
-	</div>
-	<div class="weui_cell">
-		<div class="weui_cell_hd">
-			<label class="weui_label">密码</label>
-		</div>
-		<div class="weui_cell_bd weui_cell_primary">
-			<input class="weui_input" type="password" placeholder="请输入密码" name="password"/>
-		</div>
-	</div>
-	<div class="weui_cell weui_vcode">
-		<div class="weui_cell_hd">
-			<label class="weui_label">验证码</label>
-		</div>
-		<div class="weui_cell_bd weui_cell_primary">
-			<input class="weui_input" type="text" placeholder="请输入验证码" name="yzm"/>
-		</div>
-		<div class="weui_cell_ft">
-			<i class="weui_icon_warn"></i>
-			<div id="img"></div>
-		</div>
-	</div>
-</div>
-<script>
+ <div class="weui-header bg-blue"> 
+   <h1 class="weui-header-title">成绩查询</h1>
+    <div class="weui-header-right"></div> 
+    </div>
+    <div class="weui_cells_title">请输入下列信息查询成绩信息</div>
+    <input style="display:none;" class="weui_input" type="password"/>
+        <div class="weui_cells weui_cells_form">
+        <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd">
+                    <label for="" class="weui_label">学期</label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select class="weui_select" name="xueqi" id="xueqi">
+                    	<option value="2016-2017*2">2016-2017 第2学期</option>
+                        <option value="2016-2017*1">2016-2017 第1学期</option>                
+                        <option value="2015-2016*1">2015-2016 第1学期</option>
+                        <option value="2015-2016*2">2015-2016 第2学期</option>
+                        <option value="2015-2016*3">2015-2016 第3学期</option>
+                        <option value="2014-2015*1">2014-2015 第1学期</option>
+                        <option value="2014-2015*2">2014-2015 第2学期</option>
+                        <option value="2014-2015*3">2014-2015 第3学期</option>
+                        <option value="2013-2014*1">2013-2014 第1学期</option>
+                        <option value="2013-2014*2">2013-2014 第2学期</option>
+                        <option value="2013-2014*3">2013-2014 第3学期</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="weui_label">用户名</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入用户名" name="number"/>
+                </div>
+            </div>
+            
+            
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">密码</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" type="password" placeholder="请输入密码" name="password"/>
+            </div>
+        </div>
+            
+            <div class="weui_cell weui_vcode">
+                <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="text" placeholder="请输入验证码" name="yzm"/>
+                </div>
+                <div class="weui_cell_ft">
+                    <i class="weui_icon_warn"></i>
+                    <img src="code.php" />
+                </div>
+            </div>
+ </div>           
+
+
+
+ <script>
 $(function(){
-    $.ajax({
-        url: 'code/semester.php',    //请求的url地址
-        type : 'GET',
-        dataType:"json",
-        async : false,
-        success : function (response, stutas, xhr) {
-            var data = eval(response); //数组
-            $('input[name=number]').val(data['number']);
-            $('#xueqi').prepend(data['data']);
-        }
-    });
-    $.ajax({
-        url: 'code/captcha.php',    //请求的url地址
-        type : 'GET',
-        dataType:"json",
-        async : false,
-        success : function (response, stutas, xhr) {
-            var data = eval(response); //数组
-            $('input[name=yzm]').val(data['captcha']);
-            $('#img').prepend("<img src="+data['image']+">");
-        }
-    });    
-    var max = $('#count_max').text();
-    $('#textarea').on('input', function(){
+    $('#tab5').tab({defaultIndex:0,activeClass:"bg_green"});
+  var max = $('#count_max').text();
+  $('#textarea').on('input', function(){
      var text = $(this).val();
-     var len = text.length;
-     $('#count').text(len);
+     var len = text.length;   
+     $('#count').text(len);    
      if(len > max){
        $(this).closest('.weui_cell').addClass('weui_cell_warn');
      }
      else{
        $(this).closest('.weui_cell').removeClass('weui_cell_warn');
-     }
-   });
+     }     
+  });
+   
    $('.weui-header-right').live("click",function(){
    		if($(this).html()=='简易版'){
 			$(this).text('标准版');
@@ -111,8 +106,11 @@ $(function(){
 			$('.weui-form-preview').show();
 			$('.weui-table').hide();
    		}
+   		
    });
-   $('#ok').click(function(){
+
+
+  $('#yes').click(function(){
   		if(($('#xueqi').val().length)=='0'){
             $.toast("请选择一个学期", "cancel");
             return false;
@@ -129,14 +127,14 @@ $(function(){
             $.toast("请输入验证码", "cancel");
             return false;
         }
+
         var xueqi=$('#xueqi').val();
         var number=$('input[name=number]').val();
         var password=$('input[name=password]').val();
         var code=$('input[name=yzm]').val();
             $.ajax({
-                url: 'code/score.php',    //请求的url地址
+                url: 'cxcj.php',    //请求的url地址
                 type : 'POST',
-                dataType : "json",  //json类型
                 data : {
                     xueqi : xueqi, number : number, password : password, yzm : code
                 },
@@ -146,34 +144,63 @@ $(function(){
                 },
                 success : function (response, stutas, xhr) {
                     $.hideLoading();
-                    var info = eval(response);
-                    if(!isNaN(info['code'])){
-                        $.toast(info['error'], "cancel");
+                    if(!isNaN(response)){
+                        switch(response){
+                            //case '1': webToast("请输入学号","middle",1500);break;
+                            case '2': $.toast("请求出错!", "cancel");break;
+                            case '3': $.toast("暂时无法查询成绩!", "cancel");break;
+                            case '4': $.toast("参数有误！", "cancel");;break;
+                            case '5': $.toast("用户名不存在或未按照要求参加教学活动！", "cancel");break;
+                            case '6': $.toast("验证码不正确!", "cancel");break;
+                            case '7': $.toast("密码错误！", "cancel");;break;
+                            case '8': $.toast("没有查询到相关成绩信息！", "cancel");break;
+                        }
                         setTimeout(function () {
                             location.reload();
                         }, 1500);
                     }else{
                         $('.form').hide();
-                        $('.info').html(info['data']);
+                        $('.info').html(response);
                     }
                 }
             });
-    });
-});
-</script>
-<div class="weui_btn_area">
-	<button class="weui_btn weui_btn_primary" id="ok">确定</a>
-</div>
-<br/>
-<div class="weui-footer">
-	<p class="weui-footer-text">
-		Copyright © 邢益堂
-	</p>
-</div>
+    });  
+
+});    
+
+</script>       
+ 
+ 
+        
+        <div class="weui_btn_area">
+            <button  class="weui_btn weui_btn_primary" id="yes">确定</a>
+        </div> 
+        <br />
+        <div class="weui-footer">
+            <p class="weui-footer-text">Copyright © 邢益堂 </p>
+        </div>
 </div> 
 </form>
  </div> </div>
-<div class="info">
-</div>
+        <div class="info">
+            
+        </div>
+<script>
+var $form = $("#form");
+$form.form();
+
+// 表单校验
+$("#formSubmitBtn").on("click", function(){
+    $form.validate(function(error){
+        if(error){
+            console.log("错误提示是：" + error.msg + "，但我不想出现红色报错。");
+            //return true; // 如果return true的话，则不会显示错误提示
+        }else{
+            console.log("校验成功，提交数据。。。");
+        }
+    });
+    
+});
+</script>
 </body>
 </html>
