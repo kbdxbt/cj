@@ -128,7 +128,7 @@ function captcha_new($ip, $sessionId)
 function captcha_old($ip, $sessionId)
 {
 	$curlArg = array(
-	    'url' => 'http://'.$ip.'/('.$sessionId.')/CheckCode.aspx',
+	    'url' => $ip.'/('.$sessionId.')/CheckCode.aspx',
 		'method' => 'get',
 		'responseHeaders' => 0
 	);
