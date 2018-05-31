@@ -235,12 +235,6 @@ class Base
 
 
 
-//判断PHP版本，建议7.0
-if (PHP_VERSION < '5.6') {
-	exit(json_encode(['code'=>'700','error'=>'请先提升PHP版本！']));
-}
-
-
 //判断请求参数
 if(empty($_POST['xueqi'])||empty($_POST['number'])||empty($_POST['password'])||empty($_POST['yzm'])){
 	exit(json_encode(['code'=>'100','error'=>'请求出错！']));
