@@ -17,7 +17,7 @@ use CAPTCHAReader\src\App\IndexController;
 session_start();
 
 //教务系统网址，修改成自己学校的正方教务系统网址
-$_SESSION['ip'] = "http://jwc.xcc.edu.cn/";
+$_SESSION['ip'] = "http://210.36.247.18/";
 
 //默认使用新版
 $_SESSION['sessionId'] = get_cookie(get_url($_SESSION['ip']));
@@ -54,6 +54,7 @@ if (empty($_SESSION['sessionId']))
 if (PHP_VERSION < '5.6') {
 	$url = dirname("http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 	$image = $url.'/'.$imgurl;
+	$captcha = '';
 } else {
 	//启动验证码识别程序
 	$app = new IndexController();
