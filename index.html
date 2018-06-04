@@ -68,7 +68,7 @@
 <script>
 $(function(){
     $.ajax({
-        url: 'src/semester.php',    //请求的url地址
+        url: 'code/semester.php',    //请求的url地址
         type : 'GET',
         dataType:"json",
         async : false,
@@ -79,7 +79,7 @@ $(function(){
         }
     });
     $.ajax({
-        url: 'src/captcha.php',    //请求的url地址
+        url: 'code/captcha.php',    //请求的url地址
         type : 'GET',
         dataType:"json",
         async : false,
@@ -134,7 +134,7 @@ $(function(){
         var password=$('input[name=password]').val();
         var code=$('input[name=yzm]').val();
             $.ajax({
-                url: 'src/score.php',    //请求的url地址
+                url: 'code/score.php',    //请求的url地址
                 type : 'POST',
                 dataType : "json",  //json类型
                 data : {
