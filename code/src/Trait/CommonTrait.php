@@ -19,7 +19,7 @@ trait CommonTrait
     /**
      * @param array ...$vars
      */
-    public static function dd( ...$vars ){
+    public static function dd( $vars ){
         foreach($vars as $var){
             dump( $var );
         }
