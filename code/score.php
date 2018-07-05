@@ -104,9 +104,6 @@ class Score  extends Base
 				preg_match_all('/<td.*?>([^<>]*)<\/td>/', $list[0][$i], $match);
 				$score_info[$i]=$match[1];
 			}
-			$score_total = '';
-			$score_credits = '';
-			$score_point = '';
 			for ($i=1; $i <= count($score_info); $i++){
 				$score_total += $score_info[$i]['8'];
 				$score_credits += $score_info[$i]['6'];
