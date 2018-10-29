@@ -1,3 +1,5 @@
+[![Total Downloads](https://poser.pugx.org/mdmsoft/yii2-admin/downloads.png)](https://github.com/kbdxbt/cj)
+[![Daily Downloads](https://poser.pugx.org/mdmsoft/yii2-admin/d/daily)](https://github.com/kbdxbt/cj)
 # 小程序版本定制已出
 
 ## 因为正方系统每个版本的数据不一致，所以成绩查询开源会导致某些学校用不了，建议找本人私人定制，定制教务系统各种功能(查课表，绑定微信等) 个人QQ：1194174530
