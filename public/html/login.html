@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>教务系统查询</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="css/weui.css"/>
+    <link rel="stylesheet" href="css/weuix.css"/>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/zepto.weui.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/echo.min.js"></script>
+</head>
+
+<style type="text/css">
+.weui-header .weui-header-title, .weui-header h1 {
+    margin: 0 88px;
+    margin-left: 88px;
+    margin-left: 100px;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+</style>
+<body ontouchstart style="background-color: #f8f8f8;">
+<div class="form" id="app">
+<div class="weui-header bg-blue">
+	<h1 class="weui-header-title">教务系统登录</h1>
+	<div class="weui-header-right">
+	</div>
+</div>
+
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">学号</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" pattern="[0-9]*" placeholder="请输入学号" type="number" v-model="condition.number">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui_cell__hd">
+            <label class="weui-label">密码</label>
+        </div>
+        <div class="cell__bd">
+            <input class="weui-input" type="password" placeholder="请输入密码" v-model="condition.password"/>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">验证码</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入验证码" type="text" v-model="condition.captcha">
+        </div>
+        <div class="weui-cell__ft">
+            <img class="weui-media-box__thumb lazy" data-echo="images/loading.gif" @click="getToken" height="27px" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:" id="btn" @click="login">确定</a>
+</div>
+<br/>
+<div class="weui-footer">
+    <p class="weui-footer-text">
+        Copyright © 邢益堂
+    </p>
+</div>
+</div> 
+</form>
+		<!-- <div class="weui_cell_hd">
+			<label for="" class="weui_label">学期</label>
+		</div>
+		<div class="weui_cell_bd weui_cell_primary">
+			<select class="weui_select" name="xueqi" id="xueqi" v-model="condition.semester" /> -->
+            <!--系统默认通过semeter.php加载选项,开发者可删除自己设置，格式为
+            <option value="2016-2017*1">2016-2017 第1学期</option>
+             <option value="2016-2017*2">2016-2017 第2学期</option>
+             <option value="2016-2017*3">2016-2017 第3学期</option>
+            -->
+            <!-- </select>
+		</div>
+ -->
+
+
+<script>
+    (function () {
+        echo.init({
+            offset: 44,
+            throttle: 117
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                url: 'http://localhost/rxkj/public/index.php/',
+                condition : {
+                    semester: '',
+                    number: '',
+                    password: '',
+                    captcha: ''
+                }
+            },
+            mounted: function () {
+
+            },
+            methods: {
+                getToken: function () {
+                    var self = this;
+                    // $.get(self.url + 'index/base/getSemeter', '', function (res) {
+                    //     if (res.code == 0) {
+                    //         $.each(res.data.list, function (index,item) {
+                    //             $('#xueqi').prepend('<option value="'+index+'">'+item+'</option>');
+                    //         })
+                    //     }
+                    // });
+                    $.get(self.url + 'index/base/getToken', '', function (res) {
+                        if (res.code == 0) {
+                            $("img.lazy") .attr('src',self.url + 'index/base/getCaptcha?random=' + Math.random());
+                            //$('#img').prepend("<img src="+self.url + 'index/base/getCaptcha'+">");
+                        }
+                    });
+                },
+                login: function () {
+                    var self = this;
+                    if(!self.condition.number){
+                        $.toast("请输入学号", "cancel");
+                        return false;
+                    }
+                    if(!self.condition.password){
+                        $.toast("请输入密码", "cancel");
+                        return false;
+                    }
+                    if(!self.condition.captcha){
+                        $.toast("请输入验证码", "cancel");
+                        return false;
+                    }
+                    $.ajax({
+                        url: self.url + 'index/base/login',    //请求的url地址
+                        type : 'POST',
+                        dataType : "json",  //json类型
+                        data : self.condition,
+                        async : true,
+                        beforeSend: function() {
+                            $.showLoading();
+                        },
+                        success : function (response, stutas, xhr) {
+                            $.hideLoading();
+                            if(response.code != 0){
+                                $.toast(response.msg, "cancel");
+                                setTimeout(function () {
+                                    $("img.lazy") .attr('src',self.url + 'index/base/getCaptcha?random=' + Math.random());
+                                }, 1500);
+                            }else{
+                                window.location.href = "index.html"
+                            }
+                        }
+                    });
+                }
+            }
+        });
+        app.getToken();
+    })();
+// $(function(){
+//     $.ajax({
+//         url: 'code/semester.php',    //请求的url地址
+//         type : 'GET',
+//         dataType:"json",
+//         async : false,
+//         success : function (response, stutas, xhr) {
+//             var data = eval(response); //数组
+//             $('input[name=number]').val(data['number']);
+//             $('#xueqi').prepend(data['data']);
+//         }
+//     });
+//     $.ajax({
+//         url: 'code/captcha.php',    //请求的url地址
+//         type : 'GET',
+//         dataType:"json",
+//         async : false,
+//         success : function (response, stutas, xhr) {
+//             var data = eval(response); //数组
+//             // $('input[name=yzm]').val(data['captcha']);
+//             $('#img').prepend("<img src="+data['image']+">");
+//         }
+//     });    
+//     var max = $('#count_max').text();
+//     $('#textarea').on('input', function(){
+//      var text = $(this).val();
+//      var len = text.length;
+//      $('#count').text(len);
+//      if(len > max){
+//        $(this).closest('.weui_cell').addClass('weui_cell_warn');
+//      }
+//      else{
+//        $(this).closest('.weui_cell').removeClass('weui_cell_warn');
+//      }
+//    });
+//    $('.weui-header-right').live("click",function(){
+//          if($(this).html()=='简易版'){
+//          $(this).text('标准版');
+//          $('.weui-form-preview').hide();
+//          $('.weui-table').show();
+//          }else{
+//              $(this).text('简易版');
+//          $('.weui-form-preview').show();
+//          $('.weui-table').hide();
+//          }
+//    });
+//    $('#ok').click(function(){
+//          if(($('#xueqi').val().length)=='0'){
+//             $.toast("请选择一个学期", "cancel");
+//             return false;
+//         }
+//         if(($('input[name=number]').val().length)=='0'){
+//             $.toast("请输入用户名", "cancel");
+//             return false;
+//         }
+//         if(($('input[name=password]').val().length)=='0'){
+//             $.toast("请输入密码", "cancel");
+//             return false;
+//         }
+//         if(($('input[name=yzm]').val().length)=='0'){
+//             $.toast("请输入验证码", "cancel");
+//             return false;
+//         }
+//         var xueqi=$('#xueqi').val();
+//         var number=$('input[name=number]').val();
+//         var password=$('input[name=password]').val();
+//         var code=$('input[name=yzm]').val();
+//             $.ajax({
+//                 url: 'code/score.php',    //请求的url地址
+//                 type : 'POST',
+//                 dataType : "json",  //json类型
+//                 data : {
+//                     xueqi : xueqi, number : number, password : password, yzm : code
+//                 },
+//                 async : true,
+//                 beforeSend: function() {
+//                     $.showLoading();
+//                 },
+//                 success : function (response, stutas, xhr) {
+//                     $.hideLoading();
+//                     var info = eval(response);
+//                     if(!isNaN(info['code'])){
+//                         $.toast(info['error'], "cancel");
+//                         setTimeout(function () {
+//                             location.reload();
+//                         }, 1500);
+//                     }else{
+//                         $('.form').hide();
+//                         $('.info').html(info['data']);
+//                     }
+//                 }
+//             });
+//     });
+// });
+</script>
+</body>
+</html>
