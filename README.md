@@ -1,6 +1,9 @@
-# 小程序版本定制已出
+# 小程序版本定制已出(效果截图在下方，欢迎定制或购买小程序)
 
 ## 因为正方系统每个版本的数据不一致，所以成绩查询开源会导致某些学校用不了，建议找本人私人定制，定制教务系统各种功能(查课表，绑定微信等) 个人QQ：1194174530
+
+### 有高校需要教务小程序的或者想合作的可以联系下我，自主研发的教务小程序，上线一年多期间有1.6W用户使用，150W的访问量，是运营校园应用的首选，支持高校定制，如需了解详情请加qq:1194174530
+
 
 ## 正方教务系统成绩查询手机版，结合Weui，自动识别验证码，通过模拟请求抓取教务系统成绩信息
 
@@ -36,4 +39,9 @@
 ![image](https://github.com/kbdxbt/cj/raw/2.0/image/6.png)
 ![image](https://github.com/kbdxbt/cj/raw/2.0/image/7.png)
 ![image](https://github.com/kbdxbt/cj/raw/2.0/image/8.png)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/9.png)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/10.png)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/11.png)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/12.jpg)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/13.jpg)
 
