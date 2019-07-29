@@ -42,6 +42,6 @@
 ![image](https://github.com/kbdxbt/cj/raw/2.0/image/9.png)
 ![image](https://github.com/kbdxbt/cj/raw/2.0/image/10.png)
 ![image](https://github.com/kbdxbt/cj/raw/2.0/image/11.png)
-![image](https://github.com/kbdxbt/cj/raw/2.0/image/12.jpg)
-![image](https://github.com/kbdxbt/cj/raw/2.0/image/13.jpg)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/12.png)
+![image](https://github.com/kbdxbt/cj/raw/2.0/image/13.png)
 
